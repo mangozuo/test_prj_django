@@ -13,9 +13,15 @@ import os
 
 class TestLogin(unittest.TestCase):
     def setUp(self):
-        exe_path = os.path.join(os.getcwd(),"tools","chromedriver")
-        self.driver = webdriver.Chrome(executable_path=exe_path)
-        self.driver.get("http://192.168.1.2:8000/login/")
+        ce = "http://192.168.1.9:5555/wd/hub"
+        dc_chrome = {
+            "browserName": "chrome",
+            "version": "",
+            "platform": "ANY",
+        }
+
+        self.driver = webdriver.Remote(command_executor=ce,desired_capabilities=dc_chrome)
+        self.driver.get("http://192.168.1.12:8000/login/")
 
     def test_login_1(self):
         self.driver.find_element_by_name("username").send_keys("testops")
