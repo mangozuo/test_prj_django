@@ -9,9 +9,11 @@
 import os
 import unittest
 
+
 if __name__ == '__main__':
     case_path = os.path.join(os.getcwd(),"testCase")
     print(case_path)
-    suite = unittest.defaultTestLoader.discover(case_path,pattern="test_api*.py")
+    suite = unittest.defaultTestLoader.discover(case_path,pattern="test_*.py")
 
     unittest.TextTestRunner().run(suite)
+
